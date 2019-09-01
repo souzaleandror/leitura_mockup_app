@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:leitura_mockup_app/src/login/provider/ProviderPageController.dart';
 import 'package:leitura_mockup_app/src/login/widgets/CircleButton.dart';
 import 'package:leitura_mockup_app/src/login/widgets/CustomTextField.dart';
 
@@ -42,14 +43,19 @@ class _LoginSignUpPageWidgetState extends State<LoginSignUpPageWidget> {
           Container(
             height: 50,
           ),
-          Container(
-            width: double.infinity,
-            child: Text(
-              "Already have an account ?",
-              textAlign: TextAlign.right,
-              style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  color: Theme.of(context).accentColor),
+          GestureDetector(
+            onTap: () {
+              ProviderPageController.of(context).toPage(1);
+            },
+            child: Container(
+              width: double.infinity,
+              child: Text(
+                "Already have an account ?",
+                textAlign: TextAlign.right,
+                style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    color: Theme.of(context).accentColor),
+              ),
             ),
           ),
           Container(

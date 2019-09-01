@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:leitura_mockup_app/src/login/provider/ProviderPageController.dart';
 import 'package:leitura_mockup_app/src/login/widgets/CircleButton.dart';
 
 class LoginPageWidget extends StatefulWidget {
@@ -9,6 +10,11 @@ class LoginPageWidget extends StatefulWidget {
 class _LoginPageWidgetState extends State<LoginPageWidget> {
   @override
   Widget build(BuildContext context) {
+//    ProviderPageController provider =
+//        context.inheritFromWidgetOfExactType(ProviderPageController);
+//
+//    PageController controller = provider.controller;
+
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 40),
       color: Theme.of(context).accentColor.withOpacity(0.9),
@@ -47,12 +53,26 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
             backgroundColor: Colors.transparent,
             textColor: Colors.white,
             borderColor: Colors.white,
+            onTap: () {
+              print("Tocou no signup");
+//              ProviderPageController.of(context).controller.animateToPage(0,
+//                  duration: Duration(milliseconds: 300),
+//                  curve: Curves.easeInOut);
+              ProviderPageController.of(context).toPage(0);
+            },
           ),
           Container(height: 40),
           CircleButton(
             texto: "Login",
             backgroundColor: Colors.white,
             textColor: Theme.of(context).accentColor,
+            onTap: () {
+              print("Tocou no login");
+//              ProviderPageController.of(context).controller.animateToPage(2,
+//                  duration: Duration(milliseconds: 300),
+//                  curve: Curves.easeInOut);
+              ProviderPageController.of(context).toPage(1);
+            },
           ),
         ],
       ),
